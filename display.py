@@ -6,9 +6,16 @@ def display_board(board):
 	for row in range(8):
 		for piece in range(8):
 			display_board[row][piece]=str(board[row][piece])
-	print(alpha)
+	res="  "
+	for i in alpha:
+		res+=i.center(23)
+	print(res)
 	for row in range(8):
-		print(str(row+1)+" "+str(display_board[row])) 
+		res="|"
+		for e in display_board[row]:
+			res+=str(" "+str(e).center(20)+" |")
+		print(str(8-row)+" "+res) 
+		print("-"*23*8+3*"-")
 def place_board(board):
 	#pawns
 	for piece in range(8):
@@ -39,7 +46,7 @@ if __name__ =="__main__":
 			print("Player 1 White Moves.")
 		else:
 			print("Player 2 Black Moves.")
-		input_sequence(board)
+		input_sequence(board,i%2)
 	
 		display_board(board)
 		i+=1

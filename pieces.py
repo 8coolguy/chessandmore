@@ -5,6 +5,13 @@ class piece(ABC):
 	def __init__(self,color):
 		self.color =color
 		self.title =" "
+	def valid_turn(self,turn):
+		if turn==0 and self.color=="white":
+			return True
+		if turn==1 and self.color=="black":
+			return True
+		return False
+
 	@abstractmethod
 	def valid_move(self,xi,yi,xf,yf,board):
 		pass
@@ -25,7 +32,6 @@ class pawn(piece):
 			return False
 		else:#white
 			if (xi==xf and ((yi-1 ==yf) or (yi==6 and yi-2==yf))):
-				print(board[yf][xf])
 				if board[yf][xf]==None or board[yf][xf].color!='white':
 					return True
 			return False
