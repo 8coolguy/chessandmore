@@ -23,8 +23,9 @@ def input_sequence(board,turn):
 			column=selected_column
 			row=selected_row
 			selecting=False
-		else:print("No piece is here or wrong piece.")
-		
+		else:
+			print("No piece is here or wrong piece.")
+			continue
 
 	selecting=True
 	while selecting:
@@ -46,4 +47,6 @@ def input_sequence(board,turn):
 			board[selected_row][selected_column]=piece
 			board[row][column]=None
 			selecting=False
-		else:print("Invalid Move")
+		else:
+			print("Invalid Move")
+			continue

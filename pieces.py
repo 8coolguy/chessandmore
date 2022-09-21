@@ -43,7 +43,34 @@ class bishop(piece):
 		self.title ="bishop"
 
 	def valid_move(self,xi,yi,xf,yf,board):
-		pass
+		if not abs(xi-xf)==abs(yi-yf):
+			return False
+		tx,ty =xi,yi
+		if xf-xi >0:
+			dx=1
+		else:
+			dx=-1
+		if yf-yi>0:
+			dy=1
+		else:
+			dy=-1
+		tx+=dx
+		ty+=dy
+		while tx!=xf and ty!=yf:
+			print(board)
+			print("bishop debug")
+			print(tx,ty)
+		
+			if board[ty][tx]:
+				return False
+			tx+=dx
+			ty+=dy
+		if board[yf][xf] and board[yf][xf].color==self.color:
+			return False
+		return True
+
+
+
 
 class rook(piece):
 	def __init__(self,color):
