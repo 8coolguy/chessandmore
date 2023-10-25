@@ -86,10 +86,10 @@ imagedata = '''
 if __name__ == "__main__":
     root = tk.Tk()
     board = GameBoard(root)
-    board.pack(side="top", fill="both", expand="true", padx=128, pady=128)
+    board.pack(side="top", fill="both", expand="False", padx=128, pady=128)
     black_rook = Image.open("assets/black_rook.png")
     black_rook = black_rook.resize((30,30), Image.ANTIALIAS)
     
     black_rook =  ImageTk.PhotoImage(black_rook)
-    board.addpiece("black_rook", black_rook, 0,0)
+    board.addpiece("black_rook", black_rook, 1,0)
     root.mainloop()
